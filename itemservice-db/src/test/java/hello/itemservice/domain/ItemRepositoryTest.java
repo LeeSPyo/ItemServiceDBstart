@@ -16,7 +16,7 @@ import hello.itemservice.repository.ItemSearchCond;
 import hello.itemservice.repository.ItemUpdateDto;
 import hello.itemservice.repository.memory.MemoryItemRepository;
 
-@Commit
+@Commit //강제로 커밋하기
 @Transactional
 @SpringBootTest
 class ItemRepositoryTest {
