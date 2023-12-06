@@ -38,7 +38,7 @@ public class JdbcTemplateItemRepositoryV1 implements ItemRepository {
 		String sql = "insert into item (item_name, price, quantity) values (?, ?, ?)";
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 		template.update(connection -> {
-			//자동 증가 키
+			// 자동 증가 키
 			PreparedStatement ps = connection.prepareStatement(sql, new String[] { "id" });
 			ps.setString(1, item.getItemName());
 			ps.setInt(2, item.getPrice());
@@ -76,7 +76,7 @@ public class JdbcTemplateItemRepositoryV1 implements ItemRepository {
 		if (StringUtils.hasText(itemName) || maxPrice != null) {
 			sql += " where";
 		}
-		
+
 		boolean andFlag = false;
 		List<Object> param = new ArrayList<>();
 		if (StringUtils.hasText(itemName)) {
