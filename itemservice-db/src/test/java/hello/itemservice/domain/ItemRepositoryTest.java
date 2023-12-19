@@ -86,19 +86,19 @@ class ItemRepositoryTest {
 		itemRepository.save(item2);
 		itemRepository.save(item3);
 
-		// �몮 �떎 �뾾�쓬 寃�利�
+		// 
 		test(null, null, item1, item2, item3);
 		test("", null, item1, item2, item3);
 
-		// itemName 寃�利�
+		// 
 		test("itemA", null, item1, item2);
 		test("temA", null, item1, item2);
 		test("itemB", null, item3);
 
-		// maxPrice 寃�利�
+		// 
 		test(null, 10000, item1);
 
-		// �몮 �떎 �엳�쓬 寃�利�
+		// 
 		test("itemA", 10000, item1);
 	}
 
