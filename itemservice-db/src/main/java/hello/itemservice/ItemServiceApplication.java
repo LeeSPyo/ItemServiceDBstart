@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Profile;
 
 import hello.itemservice.config.JpaConfig;
+import hello.itemservice.config.SpringDataJpaConfig;
 import hello.itemservice.repository.ItemRepository;
 import lombok.extern.slf4j.Slf4j;
 
@@ -16,7 +17,8 @@ import lombok.extern.slf4j.Slf4j;
 //@Import(JdbcTemplateV2Config.class)
 //@Import(JdbcTemplateV3Config.class)
 //@Import(MyBatisConfig.class)
-@Import(JpaConfig.class)
+//@Import(JpaConfig.class)
+@Import(SpringDataJpaConfig.class)
 @SpringBootApplication(scanBasePackages = "hello.itemservice.web")
 public class ItemServiceApplication {
 
@@ -32,7 +34,7 @@ public class ItemServiceApplication {
 	/*
 	 * @Bean
 	 * 
-	 * @Profile("test") public DataSource dataSource() { log.info("¸Þ¸ð¸® µ¥ÀÌÅÍº£ÀÌ½º ÃÊ±âÈ­");
+	 * @Profile("test") public DataSource dataSource() { log.info("ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½Ê±ï¿½È­");
 	 * DriverManagerDataSource dataSource = new DriverManagerDataSource();
 	 * dataSource.setDriverClassName("org.h2.Driver");
 	 * dataSource.setUrl("jdbc:h2:mem:db;DB_CLOSE_DELAY=-1");
