@@ -56,7 +56,7 @@ public class JdbcTemplateItemRepositoryV2 implements ItemRepository {
 		String sql = "update item " + "set item_name=:itemName, price=:price, quantity=:quantity " + "where id=:id";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("itemName", updateParam.getItemName())
 				.addValue("price", updateParam.getPrice()).addValue("quantity", updateParam.getQuantity())
-				.addValue("id", itemId); // ÀÌ ºÎºÐÀÌ º°µµ·Î ÇÊ¿äÇÏ´Ù.
+				.addValue("id", itemId);
 		template.update(sql, param);
 	}
 
@@ -78,7 +78,7 @@ return Optional.empty();
 		String itemName = cond.getItemName();
 		SqlParameterSource param = new BeanPropertySqlParameterSource(cond);
 		String sql = "select id, item_name, price, quantity from item";
-		//µ¿Àû Äõ¸®
+		
 		if (StringUtils.hasText(itemName) || maxPrice != null) {
 			sql += " where";
 		}
@@ -98,6 +98,6 @@ return Optional.empty();
 	}
 
 	private RowMapper<Item> itemRowMapper() {
-		return BeanPropertyRowMapper.newInstance(Item.class); // camel º¯È¯ Áö¿ø
+		return BeanPropertyRowMapper.newInstance(Item.class); // camel í‘œê¸°ë²•
 	}
 }

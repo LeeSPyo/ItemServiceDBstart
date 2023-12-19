@@ -37,7 +37,7 @@ public class JdbcTemplateItemRepositoryV3 implements ItemRepository {
 		this.jdbcInsert = new SimpleJdbcInsert(dataSource)
 				.withTableName("item")
 				.usingGeneratedKeyColumns("id");
-// 				.usingColumns("item_name", "price", "quantity"); //생략 가능
+// 				.usingColumns("item_name", "price", "quantity"); 
 	}
 
 	@Override
@@ -75,7 +75,7 @@ public class JdbcTemplateItemRepositoryV3 implements ItemRepository {
 		String itemName = cond.getItemName();
 		SqlParameterSource param = new BeanPropertySqlParameterSource(cond);
 		String sql = "select id, item_name, price, quantity from item";
-		//동적 쿼리
+		
 		if (StringUtils.hasText(itemName) || maxPrice != null) {
 			sql += " where";
 		}
